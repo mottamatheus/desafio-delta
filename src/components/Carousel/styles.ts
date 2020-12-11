@@ -8,7 +8,8 @@ export const Container = styled.div`
   width: 90vw;
   right: 0;
   height: 47vh;
-  z-index: 1;
+  z-index: 4;
+  transition: all 0.2s ease;
 `;
 
 export const TextContainer = styled.div`
