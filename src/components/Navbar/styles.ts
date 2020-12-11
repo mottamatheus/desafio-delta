@@ -1,13 +1,17 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import logoImg from '../../assets/logo.svg';
 import menuIcon from '../../assets/menu.svg';
+
+interface SidebarProps {
+  display: number;
+}
 
 export const Container = styled.div`
   position: absolute;
   display: flex;
   justify-content: space-between;
   height: 5.2rem;
-  z-index: 1;
+  z-index: 2;
   width: 100vw;
   background-color: var(--text-secondary);
 `;
@@ -30,10 +34,11 @@ export const Menu = styled.div`
   background: url(${menuIcon}) no-repeat;
 `;
 
-export const StyledMenu = styled.nav`
+export const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
-  visibility: hidden;
+  opacity: ${(props: SidebarProps): string =>
+    props.display === 0 ? '0' : '0'};
   justify-content: center;
   background: red;
   height: 100vh;
@@ -43,5 +48,5 @@ export const StyledMenu = styled.nav`
   position: absolute;
   top: 0;
   right: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 `;

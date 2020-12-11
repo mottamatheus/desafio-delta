@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Logo, Menu, StyledMenu } from './styles';
 
 const Navbar: React.FC = () => {
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
+  const [sidebar, setSidebar] = useState(0);
 
   return (
     <Container>
       <Logo />
-      <Link to=".">
-        <Menu onClick={showSidebar} />
-      </Link>
-      <StyledMenu style={{ display: sidebar ? 'flex' : 'none' }} />
+      <Menu onClick={() => setSidebar(1)} />
+      <StyledMenu display={sidebar} />
     </Container>
   );
 };
